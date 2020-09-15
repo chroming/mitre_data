@@ -10,10 +10,31 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    - name: Download file
+    - name: Download mitre cvrf file
       uses: wei/wget@v1
       with:
         args: -O allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml
+    - name: Download Redhat 4 rhsa file
+      uses: wei/wget@v1
+      with:
+        args: -O 	com.redhat.rhsa-RHEL4.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL4.xml
+    - name: Download Redhat 5 rhsa file
+      uses: wei/wget@v1
+      with:
+        args: -O 	com.redhat.rhsa-RHEL5.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL5.xml
+    - name: Download Redhat 6 rhsa file
+      uses: wei/wget@v1
+      with:
+        args: -O 	com.redhat.rhsa-RHEL6.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml    
+    - name: Download Redhat 7 rhsa file
+      uses: wei/wget@v1
+      with:
+        args: -O 	com.redhat.rhsa-RHEL7.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml
+    - name: Download Redhat 8 rhsa file
+      uses: wei/wget@v1
+      with:
+        args: -O 	com.redhat.rhsa-RHEL8.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml     
+    
     #- name: save
     #  uses: actions/upload-artifact@v2
     #  with:
@@ -29,8 +50,8 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: false
         prerelease: false
-    - name: Upload Release Asset
-      id: upload-release-asset 
+    - name: Upload mitre cvrf Asset
+      id: upload-mitre-cvrf-asset 
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,4 +59,54 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
         asset_path: ./allitems-cvrf.xml
         asset_name: allitems-cvrf.xml
+        asset_content_type: application/xml
+    - name: Upload Redhat 4 Asset
+      id: upload-redhat4-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./com.redhat.rhsa-RHEL4.xml
+        asset_name: com.redhat.rhsa-RHEL4.xml
+        asset_content_type: application/xml
+    - name: Upload Redhat 5 Asset
+      id: upload-redhat5-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./com.redhat.rhsa-RHEL5.xml
+        asset_name: com.redhat.rhsa-RHEL5.xml
+        asset_content_type: application/xml
+    - name: Upload Redhat6 Asset
+      id: upload-redhat6-asset
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./com.redhat.rhsa-RHEL6.xml
+        asset_name: com.redhat.rhsa-RHEL6.xml
+        asset_content_type: application/xml
+    - name: Upload Redhat7 Asset
+      id: upload-redhat7-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./com.redhat.rhsa-RHEL7.xml
+        asset_name: com.redhat.rhsa-RHEL7.xml
+        asset_content_type: application/xml
+    - name: Upload Redhat8 Asset
+      id: upload-redhat8-asset 
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+        asset_path: ./com.redhat.rhsa-RHEL8.xml
+        asset_name: com.redhat.rhsa-RHEL8.xml
         asset_content_type: application/xml
