@@ -17,23 +17,23 @@ jobs:
     - name: Download Redhat 4 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL4.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL4.xml
+        args: -O 	com.redhat.rhsa-RHEL4.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL4.xml.bz2
     - name: Download Redhat 5 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL5.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL5.xml
+        args: -O 	com.redhat.rhsa-RHEL5.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL5.xml.bz2
     - name: Download Redhat 6 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL6.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml    
+        args: -O 	com.redhat.rhsa-RHEL6.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2  
     - name: Download Redhat 7 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL7.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml
+        args: -O 	com.redhat.rhsa-RHEL7.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2
     - name: Download Redhat 8 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL8.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml     
+        args: -O 	com.redhat.rhsa-RHEL8.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2     
     
     #- name: save
     #  uses: actions/upload-artifact@v2
@@ -67,9 +67,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./com.redhat.rhsa-RHEL4.xml
-        asset_name: com.redhat.rhsa-RHEL4.xml
-        asset_content_type: application/xml
+        asset_path: ./com.redhat.rhsa-RHEL4.xml.bz2
+        asset_name: com.redhat.rhsa-RHEL4.xml.bz2
+        asset_content_type: application/x-bzip2
     - name: Upload Redhat 5 Asset
       id: upload-redhat5-asset
       uses: actions/upload-release-asset@v1
@@ -77,9 +77,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./com.redhat.rhsa-RHEL5.xml
-        asset_name: com.redhat.rhsa-RHEL5.xml
-        asset_content_type: application/xml
+        asset_path: ./com.redhat.rhsa-RHEL5.xml.bz2
+        asset_name: com.redhat.rhsa-RHEL5.xml.bz2
+        asset_content_type: application/x-bzip2
     - name: Upload Redhat6 Asset
       id: upload-redhat6-asset
       uses: actions/upload-release-asset@v1
@@ -87,9 +87,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./com.redhat.rhsa-RHEL6.xml
-        asset_name: com.redhat.rhsa-RHEL6.xml
-        asset_content_type: application/xml
+        asset_path: ./com.redhat.rhsa-RHEL6.xml.bz2
+        asset_name: com.redhat.rhsa-RHEL6.xml.bz2
+        asset_content_type: application/x-bzip2
     - name: Upload Redhat7 Asset
       id: upload-redhat7-asset 
       uses: actions/upload-release-asset@v1
@@ -97,9 +97,9 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./com.redhat.rhsa-RHEL7.xml
-        asset_name: com.redhat.rhsa-RHEL7.xml
-        asset_content_type: application/xml
+        asset_path: ./com.redhat.rhsa-RHEL7.xml.bz2
+        asset_name: com.redhat.rhsa-RHEL7.xml.bz2
+        asset_content_type: application/x-bzip2
     - name: Upload Redhat8 Asset
       id: upload-redhat8-asset 
       uses: actions/upload-release-asset@v1
@@ -107,6 +107,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./com.redhat.rhsa-RHEL8.xml
-        asset_name: com.redhat.rhsa-RHEL8.xml
-        asset_content_type: application/xml
+        asset_path: ./com.redhat.rhsa-RHEL8.xml.bz2
+        asset_name: com.redhat.rhsa-RHEL8.xml.bz2
+        asset_content_type: application/x-bzip2
