@@ -1,0 +1,15 @@
+name: "Sync data from mitre.org"
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  "*/15 * * * *"
+
+jobs:
+  wget:
+    runs-on: ubuntu-latest
+    steps:
+    - name: wget
+      uses: wei/wget@v1
+      with:
+        args: -O allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml
