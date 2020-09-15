@@ -10,6 +10,8 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
+    - name: Create dir
+      run: mkdir files
     - name: Download mitre cvrf file
       uses: wei/wget@v1
       with:
