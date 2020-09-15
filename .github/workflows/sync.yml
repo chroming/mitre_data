@@ -17,23 +17,23 @@ jobs:
     - name: Download Redhat 4 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL4.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL4.xml.bz2
+        args: -O 	com.redhat.rhsa-RHEL4.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL4.xml.bz2
     - name: Download Redhat 5 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL5.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL5.xml.bz2
+        args: -O 	com.redhat.rhsa-RHEL5.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL5.xml.bz2
     - name: Download Redhat 6 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL6.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2  
+        args: -O 	com.redhat.rhsa-RHEL6.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2  
     - name: Download Redhat 7 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL7.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2
+        args: -O 	com.redhat.rhsa-RHEL7.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2
     - name: Download Redhat 8 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	com.redhat.rhsa-RHEL8.xml https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2     
+        args: -O 	com.redhat.rhsa-RHEL8.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2     
     
     #- name: save
     #  uses: actions/upload-artifact@v2
