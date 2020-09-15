@@ -1,4 +1,4 @@
-name: "Sync data from mitre.org"
+name: Sync data from mitre.org
 
 on:
   schedule:
@@ -6,10 +6,15 @@ on:
     - cron:  "*/15 * * * *"
 
 jobs:
-  wget:
+  sync:
     runs-on: ubuntu-latest
     steps:
-    - name: wget
+    - name: download
       uses: wei/wget@v1
       with:
         args: -O allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml
+    - name: save
+      uses: actions/upload-artifact@v2
+      with:
+          name: allitems file
+          path: data/allitems-cvrf.xml
