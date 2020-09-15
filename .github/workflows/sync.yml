@@ -10,15 +10,15 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    - name: download
+    - name: Download file
       uses: wei/wget@v1
       with:
         args: -O allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml
-    - name: save
-      uses: actions/upload-artifact@v2
-      with:
-          name: allitems file
-          path: allitems-cvrf.xml
+    #- name: save
+    #  uses: actions/upload-artifact@v2
+    #  with:
+    #      name: allitems file
+    #      path: allitems-cvrf.xml
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
