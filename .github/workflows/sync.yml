@@ -12,9 +12,9 @@ jobs:
     - name: download
       uses: wei/wget@v1
       with:
-        args: -O data/allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml
+        args: -O allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml
     - name: save
       uses: actions/upload-artifact@v2
       with:
           name: allitems file
-          path: data/allitems-cvrf.xml
+          path: allitems-cvrf.xml
