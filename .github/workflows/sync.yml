@@ -56,6 +56,22 @@ jobs:
       uses: wei/wget@v1
       with:
         args: -O 	files/nvdcve-1.1-recent.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.meta
+    - name: Download nvdcve-1.1-2019.json.gz file
+      uses: wei/wget@v1
+      with:
+        args: -O 	files/nvdcve-1.1-2019.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2019.json.gz
+    - name: Download nvdcve-1.1-2020.json.gz file
+      uses: wei/wget@v1
+      with:
+        args: -O 	files/nvdcve-1.1-2020.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020.json.gz
+    - name: Download vdcve-1.1-modified.json.gz file
+      uses: wei/wget@v1
+      with:
+        args: -O 	files/nvdcve-1.1-modified.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.json.gz
+    - name: Download nvdcve-1.1-recent.json.gz file
+      uses: wei/wget@v1
+      with:
+        args: -O 	files/nvdcve-1.1-recent.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.json.gz
     
     # - name: Commit files
     #   run: |
