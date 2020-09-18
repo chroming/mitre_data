@@ -16,42 +16,43 @@ jobs:
         fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
     # - name: Create dir
     #   run: mkdir files
-    - name: Download mitre cvrf file
-      uses: wei/wget@v1
-      with:
-        args: -O files/allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml
-    - name: Download Redhat 4 rhsa file
-      uses: wei/wget@v1
-      with:
-        args: -O 	files/com.redhat.rhsa-RHEL4.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL4.xml.bz2
-    - name: Download Redhat 5 rhsa file
-      uses: wei/wget@v1
-      with:
-        args: -O 	files/com.redhat.rhsa-RHEL5.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL5.xml.bz2
-    - name: Download Redhat 6 rhsa file
-      uses: wei/wget@v1
-      with:
-        args: -O 	files/com.redhat.rhsa-RHEL6.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2  
-    - name: Download Redhat 7 rhsa file
-      uses: wei/wget@v1
-      with:
-        args: -O 	files/com.redhat.rhsa-RHEL7.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2
-    - name: Download Redhat 8 rhsa file
-      uses: wei/wget@v1
-      with:
-        args: -O 	files/com.redhat.rhsa-RHEL8.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2
-    - name: Download nvdcve-1.1-2019.meta file
-      uses: wei/wget@v1
-      with:
-        args: -O 	files/nvdcve-1.1-2019.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2019.meta
-    - name: Download nvdcve-1.1-2020.meta file
-      uses: wei/wget@v1
-      with:
-        args: -O 	files/nvdcve-1.1-2020.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020.meta
-    - name: Download vdcve-1.1-modified.meta file
-      uses: wei/wget@v1
-      with:
-        args: -O 	files/nvdcve-1.1-modified.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.meta
+
+    # - name: Download mitre cvrf file
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O files/allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml
+    # - name: Download Redhat 4 rhsa file
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O 	files/com.redhat.rhsa-RHEL4.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL4.xml.bz2
+    # - name: Download Redhat 5 rhsa file
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O 	files/com.redhat.rhsa-RHEL5.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL5.xml.bz2
+    # - name: Download Redhat 6 rhsa file
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O 	files/com.redhat.rhsa-RHEL6.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2  
+    # - name: Download Redhat 7 rhsa file
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O 	files/com.redhat.rhsa-RHEL7.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2
+    # - name: Download Redhat 8 rhsa file
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O 	files/com.redhat.rhsa-RHEL8.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2
+    # - name: Download nvdcve-1.1-2019.meta file
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O 	files/nvdcve-1.1-2019.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2019.meta
+    # - name: Download nvdcve-1.1-2020.meta file
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O 	files/nvdcve-1.1-2020.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020.meta
+    # - name: Download vdcve-1.1-modified.meta file
+    #   uses: wei/wget@v1
+    #   with:
+    #     args: -O 	files/nvdcve-1.1-modified.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.meta
     - name: Download nvdcve-1.1-recent.meta file
       uses: wei/wget@v1
       with:
@@ -78,7 +79,7 @@ jobs:
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: files/*
-        tag: master
+        tag: upload
         overwrite: true
         file_glob: true
     # - name: Create Release
