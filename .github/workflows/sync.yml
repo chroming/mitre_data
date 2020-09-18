@@ -1,4 +1,4 @@
-name: Sync data from mitre.org
+name: Sync data
 
 on:
   schedule:
@@ -56,16 +56,17 @@ jobs:
       uses: wei/wget@v1
       with:
         args: -O 	files/nvdcve-1.1-recent.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.meta
-    - name: Commit files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add files/*
-        git commit -m "Update" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+    
+    # - name: Commit files
+    #   run: |
+    #     git config --local user.email "action@github.com"
+    #     git config --local user.name "GitHub Action"
+    #     git add files/*
+    #     git commit -m "Update" -a
+    # - name: Push changes
+    #   uses: ad-m/github-push-action@master
+    #   with:
+    #     github_token: ${{ secrets.GITHUB_TOKEN }}
 
     
     #- name: save
