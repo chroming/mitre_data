@@ -10,12 +10,8 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-    # - uses: actions/checkout@master
-    #   with:
-    #     persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal token
-    #     fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
-    # - name: Create dir
-    #   run: mkdir files
+    - name: Create dir
+      run: mkdir files
     - name: Download mitre cvrf file
       uses: wei/wget@v1
       with:
@@ -59,37 +55,19 @@ jobs:
     - name: Download nvdcve-1.1-2019.json.gz file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-2019.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2019.json.gz
+        args: -O 	files/nvdcve-1.1-2019.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2019.json.gz
     - name: Download nvdcve-1.1-2020.json.gz file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-2020.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020.json.gz
+        args: -O 	files/nvdcve-1.1-2020.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020.json.gz
     - name: Download vdcve-1.1-modified.json.gz file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-modified.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.json.gz
+        args: -O 	files/nvdcve-1.1-modified.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.json.gz
     - name: Download nvdcve-1.1-recent.json.gz file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-recent.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.json.gz
-    
-    # - name: Commit files
-    #   run: |
-    #     git config --local user.email "action@github.com"
-    #     git config --local user.name "GitHub Action"
-    #     git add files/*
-    #     git commit -m "Update" -a
-    # - name: Push changes
-    #   uses: ad-m/github-push-action@master
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-
-    
-    #- name: save
-    #  uses: actions/upload-artifact@v2
-    #  with:
-    #      name: allitems file
-    #      path: allitems-cvrf.xml
+        args: -O 	files/nvdcve-1.1-recent.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.json.gz
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
@@ -98,73 +76,3 @@ jobs:
         tag: upload
         overwrite: true
         file_glob: true
-    # - name: Create Release
-    #     id: create_release
-    #     uses: actions/create-release@v1
-    #     env:
-    #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #     with:
-    #       tag_name: ${{ github.run_id }}
-    #       release_name: Release ${{ github.ref }}
-    #       draft: false
-    #       prerelease: false
-    # - name: Upload mitre cvrf Asset
-    #   id: upload-mitre-cvrf-asset 
-    #   uses: actions/upload-release-asset@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-    #     asset_path: ./allitems-cvrf.xml
-    #     asset_name: allitems-cvrf.xml
-    #     asset_content_type: application/xml
-    # - name: Upload Redhat 4 Asset
-    #   id: upload-redhat4-asset 
-    #   uses: actions/upload-release-asset@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-    #     asset_path: ./com.redhat.rhsa-RHEL4.xml.bz2
-    #     asset_name: com.redhat.rhsa-RHEL4.xml.bz2
-    #     asset_content_type: application/x-bzip2
-    # - name: Upload Redhat 5 Asset
-    #   id: upload-redhat5-asset
-    #   uses: actions/upload-release-asset@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-    #     asset_path: ./com.redhat.rhsa-RHEL5.xml.bz2
-    #     asset_name: com.redhat.rhsa-RHEL5.xml.bz2
-    #     asset_content_type: application/x-bzip2
-    # - name: Upload Redhat6 Asset
-    #   id: upload-redhat6-asset
-    #   uses: actions/upload-release-asset@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-    #     asset_path: ./com.redhat.rhsa-RHEL6.xml.bz2
-    #     asset_name: com.redhat.rhsa-RHEL6.xml.bz2
-    #     asset_content_type: application/x-bzip2
-    # - name: Upload Redhat7 Asset
-    #   id: upload-redhat7-asset 
-    #   uses: actions/upload-release-asset@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-    #     asset_path: ./com.redhat.rhsa-RHEL7.xml.bz2
-    #     asset_name: com.redhat.rhsa-RHEL7.xml.bz2
-    #     asset_content_type: application/x-bzip2
-    # - name: Upload Redhat8 Asset
-    #   id: upload-redhat8-asset 
-    #   uses: actions/upload-release-asset@v1
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #   with:
-    #     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-    #     asset_path: ./com.redhat.rhsa-RHEL8.xml.bz2
-    #     asset_name: com.redhat.rhsa-RHEL8.xml.bz2
-    #     asset_content_type: application/x-bzip2
