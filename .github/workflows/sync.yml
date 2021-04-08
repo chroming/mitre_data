@@ -19,55 +19,55 @@ jobs:
     - name: Download Redhat 4 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	files/com.redhat.rhsa-RHEL4.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL4.xml.bz2
+        args: -O    files/com.redhat.rhsa-RHEL4.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL4.xml.bz2
     - name: Download Redhat 5 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	files/com.redhat.rhsa-RHEL5.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL5.xml.bz2
+        args: -O    files/com.redhat.rhsa-RHEL5.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL5.xml.bz2
     - name: Download Redhat 6 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	files/com.redhat.rhsa-RHEL6.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2  
+        args: -O    files/com.redhat.rhsa-RHEL6.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL6.xml.bz2  
     - name: Download Redhat 7 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	files/com.redhat.rhsa-RHEL7.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2
+        args: -O    files/com.redhat.rhsa-RHEL7.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL7.xml.bz2
     - name: Download Redhat 8 rhsa file
       uses: wei/wget@v1
       with:
-        args: -O 	files/com.redhat.rhsa-RHEL8.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2
-    - name: Download nvdcve-1.1-2019.meta file
+        args: -O    files/com.redhat.rhsa-RHEL8.xml.bz2 https://www.redhat.com/security/data/oval/com.redhat.rhsa-RHEL8.xml.bz2
+    - name: Download nvdcve-1.1-2021.meta file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-2019.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2019.meta
+        args: -O    files/nvdcve-1.1-2021.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2021.meta
     - name: Download nvdcve-1.1-2020.meta file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-2020.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020.meta
+        args: -O    files/nvdcve-1.1-2020.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020.meta
     - name: Download vdcve-1.1-modified.meta file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-modified.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.meta
+        args: -O    files/nvdcve-1.1-modified.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.meta
     - name: Download nvdcve-1.1-recent.meta file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-recent.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.meta
-    - name: Download nvdcve-1.1-2019.json.gz file
+        args: -O    files/nvdcve-1.1-recent.meta https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.meta
+    - name: Download nvdcve-1.1-2021.json.gz file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-2019.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2019.json.gz
+        args: -O    files/nvdcve-1.1-2021.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2021.json.gz
     - name: Download nvdcve-1.1-2020.json.gz file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-2020.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020.json.gz
+        args: -O    files/nvdcve-1.1-2020.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-2020.json.gz
     - name: Download vdcve-1.1-modified.json.gz file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-modified.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.json.gz
+        args: -O    files/nvdcve-1.1-modified.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-modified.json.gz
     - name: Download nvdcve-1.1-recent.json.gz file
       uses: wei/wget@v1
       with:
-        args: -O 	files/nvdcve-1.1-recent.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.json.gz
+        args: -O    files/nvdcve-1.1-recent.json.gz https://nvd.nist.gov/feeds/json/cve/1.1/nvdcve-1.1-recent.json.gz
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
