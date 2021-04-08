@@ -16,6 +16,10 @@ jobs:
       uses: wei/wget@v1
       with:
         args: -O files/allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml
+    - name: Download mitre cvrf gz file
+      uses: wei/wget@v1
+      with:
+        args: -O files/allitems-cvrf.xml https://cve.mitre.org/data/downloads/allitems-cvrf.xml.gz
     - name: Download Redhat 4 rhsa file
       uses: wei/wget@v1
       with:
