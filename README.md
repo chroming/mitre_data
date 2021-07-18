@@ -1,1 +1,1 @@
-Auto sync vul data to github
+Auto sync vul data to github.
